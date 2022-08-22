@@ -1,0 +1,9 @@
+.apartment {
+    width: 10px;
+    max-width: 10px;
+    text-align: -webkit-center;
+}
+
+.row {
+    grid-template-rows: 25% 25% 25%;
+}
