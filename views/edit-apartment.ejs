@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="icon" type="image/svg+xml" href="https://example.com/image.svg">
+    <title>AptFinder</title>
+</head>
+<body style="text-align: -webkit-center;">
+    <div class="w-25 align-content-center">
+
+        <form method="POST">
+
+            <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" name="title" class="form-control" placeholder="Título del apartamento" value="<%= apartment.title %>">
+            </div>
+            <p></p>
+    
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" name="description" class="form-control" placeholder="Descripción del apartamento"value="<%= apartment.description %>">
+            </div>
+            <p></p>
+    
+            <div class="form-group">
+                <label for="rules">Reglas</label>
+                <input type="text" name="rules" class="form-control" placeholder="Reglas del apartamento"value="<%= apartment.rules %>">
+            </div>
+            <p></p>
+
+            <div class="form-group">
+                <label for="img1">Link Imagen 1</label>
+                <input type="text" name="img1" id="img1" class="form-control" placeholder="URL Imagen 1"value="<%= apartment.origImg1 %>">
+            </div>
+            <p></p>
+
+            <div class="form-group">
+                <label for="img2">Link Imagen 2</label>
+                <input type="text" name="img2" id="img2" class="form-control" placeholder="URL Imagen 2"value="<%= apartment.origImg2 %>">
+            </div>
+            <p></p>
+
+            <div class="form-group">
+                <label for="img3">Link Imagen 3</label>
+                <input type="text" name="img3" id="img3" class="form-control" placeholder="URL Imagen 3"value="<%= apartment.origImg3 %>">
+            </div>
+            <p></p>
+
+            <div class="form-group">
+                <label for="img4">Link Imagen 4</label>
+                <input type="text" name="img4" id="img4" class="form-control" placeholder="URL Imagen 4"value="<%= apartment.origImg4 %>">
+            </div>
+            <p></p>
+
+            <div class="form-group">   
+                <label for="mainImg">Imagen Principal:</label>
+                    <select id="mainImg" name="mainImg" class="form-control">
+                        <option selected disabled>-- Selecciona una imagen --</option>
+                        <% if (maninImg == )
+                        <option value="img1">Imagen 1</option>
+                        <option value="img2">Imagen 2</option>
+                        <option value="img3">Imagen 3</option>
+                        <option value="img4">Imagen 4</option>
+                    </select>
+                </div>
+            <p></p>
+
+            <div class="form-group">
+                <label for="rooms">Habitaciones</label>
+                <select id="rooms" name="rooms" class="form-control">
+                    <option selected disabled>-- Selecciona el nº de habitaciones --</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select>
+            </div>
+            <p></p>
+    
+            <div class="form-group">
+                <label for="roomsBeds">Camas por habitación</label>
+                <select id="roomsBeds" name="roomsBeds" class="form-control">
+                    <option selected disabled>-- Selecciona el nº de camas --</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </div>
+            <p></p>
+    
+            <div class="form-group">
+                <label for="bathrooms">Baños</label>
+                <select id="bathrooms" name="bathrooms" class="form-control">
+                    <option selected disabled>-- Selecciona el nº de baños --</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <p></p>
+    
+    
+            <div class="form-group">
+                <label for="price">Precio por día</label>
+                <input type="number" id="price" name="price" class="form-control" placeholder="Precio (en €)" value="<%= apartment.price %>">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-group">
+                <label for="size">Metros cuadrados</label>
+                <input type="number" id="size" name="size" class="form-control" placeholder="Tamaño (en m²)" value="<%= apartment.size %>">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-check">
+                <label for="util_ac">Aire Acondicionado</label>
+                <input type="hidden" name="util_ac" value="false">
+                <input type="checkbox" id="util_ac" name="util_ac" 
+                value="true" class="form-check-input">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-check">
+                <label for="util_heater">Calefacción</label>
+                <input type="hidden" name="util_heater" value="false">
+                <input type="checkbox" id="util_heater" name="util_heater"
+                value="true" class="form-check-input">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-check">
+                <label for="util_accessibility">Accesible para minusválidos</label>
+                <input type="hidden" name="util_accessibility" value="false">
+                <input type="checkbox" id="util_accessibility" name="util_accessibility"
+                value="true" class="form-check-input">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-check">
+                <label for="util_tv">Televisión</label>
+                <input type="hidden" name="util_tv" value="false">
+                <input type="checkbox" id="util_tv" name="util_tv"
+                value="true" class="form-check-input">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-check">
+                <label for="util_kitchen">Cocina</label>
+                <input type="hidden" name="util_kitchen" value="false">
+                <input type="checkbox" id="util_kitchen" name="util_kitchen"
+                value="true" class="form-check-input">
+                </input>
+            </div>
+            <p></p>
+    
+            <div class="form-check">
+                <label for="util_internet">Internet</label>
+                <input type="hidden" name="util_internet" value="false">
+                <input type="checkbox" id="util_internet" name="util_internet"
+                value="true" class="form-check-input">
+                </input>
+            </div>
+            <p></p>
+    
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- Imagenes del apartamento, máximo 4. Cada una con una descripción. Una de ellas la principal.-->
+        </form>
+
+    </div>
+        
+    <script>
+        document.getElementById('rooms').value = `<%= apartment.rooms %>`;
+        document.getElementById('roomsBeds').value = `<%= apartment.roomsBeds %>`;
+        document.getElementById('bathrooms').value = `<%= apartment.bathrooms %>`;
+    </script>
+</body>
+</html>
