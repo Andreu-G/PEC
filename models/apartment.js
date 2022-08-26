@@ -19,6 +19,7 @@ const apartmentSchema = new Schema({
     bathrooms: Number,
     price: Number,
     size: Number,
+    city: String,
     utilities: [{
         ac: Boolean,
         heater: Boolean,
@@ -28,10 +29,9 @@ const apartmentSchema = new Schema({
         internet: Boolean 
     }],
     dates: Array,
-    available: Boolean
+    hidden: Boolean
 });
 
-// Creamos el modelo: relacionamos el esquema apartmentSchema a la colección 'apartments'
 const Apartment = mongoose.model("apartments", apartmentSchema);
 
 module.exports = Apartment;

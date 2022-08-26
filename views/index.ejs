@@ -13,27 +13,73 @@
   <div id="applist" class="d-grid row">
     <div class="row">
 
+      <form id="search" method="POST">
+        
+        Buscador:
+        <div class="form-group w-25">
+            <label for="title">Cantidad de personas:</label>
+              <select id="personAmount" name="personAmount" class="form-control">
+                  <option selected disabled>-- Selecciona una cantidad --</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+              </select>
+        </div>
+
+        <div class="form-group w-25">
+          <label for="price">Precio mínimo:</label>
+          <input type="number" id="price" name="price" class="form-control" placeholder="Precio mínimo (en €)">
+          </input>
+        </div>
+
+        <div class="form-group w-25">
+          <label for="city">Ciudad</label>
+            <select id="city" name="city" class="form-control">
+                <option selected disabled>-- Selecciona una ciudad --</option>
+                <option value="BCN">Barcelona</option>
+                <option value="MDR">Madrid</option>
+                <option value="STN">Saturno</option>
+            </select>
+      </div>
+
+      <button type="submit" id="srch" class="btn btn-success">Buscar</button>
+      <button id="clearsrch" class="btn btn-success">Limpiar Búsqueda</button>
+      <% if (admin) {%>
+      <a id="unhideall" class="btn btn-danger" href='http://localhost:3000/admin/unhideall'>Mostrar todos</a>
+      <% } %>
+      </form>
+      <p></p>
+
+
+
       <% apartments.forEach(app => { %>
 
         <div class="apartment border border-3 border-dark border-opacity-50 ms-5 col col-4">
           <img class="w-100" src="<%= app.mainImg %>" alt="Img">
       
           <div class="aptitle fw-bold text-center text-decoration-underline"> <%= app.title %> </div>
-          <div class="apdesc text-center"> <%= app.description %></div>
+          <div class="apdesc text-center">Descripción: <%= app.description %></div>
           <p></p>
-          <div class="apdesc text-center"> <%= app.rules %></div>
+          <div class="apdesc text-center">Reglas: <%= app.rules %></div>
           <p></p>
-          <div class="apprice text-center fw-bold"> <%= app.price %>€</div>
+          <div class="apdesc text-center">Ciudad: <%= app.city %></div>
           <p></p>
-          <div class="apsize text-center fw-bold"> <%= app.size %>m²</div>
+          <div class="apprice text-center fw-bold">Precio: <%= app.price %>€</div>
+          <p></p>
+          <div class="apsize text-center fw-bold">Tamaño: <%= app.size %>m²</div>
       
           <hr>
       
           <ul class="list-unstyled row container justify-content-center">
             <% if (app.utilities[0]?.ac) { %>
-            <div class="col-6"><i class="fa fa-fw fa-shower"></i> Shower</div>
+            <div class="col-6"><i class="fa fa-fw fa-shower"></i> Ducha</div>
             <% } else { %>
-            <div class="col-6"><i class="fa fa-fw fa-shower text-muted"></i> Shower</div>
+            <div class="col-6"><i class="fa fa-fw fa-shower text-muted"></i> Ducha</div>
             <% } %>
             <% if (app.utilities[0]?.internet) { %>
             <div class="col-6"><i class="fa fa-fw fa-wifi"></i> WiFi</div>
@@ -46,24 +92,25 @@
             <div class="col-6"><i class="fa fa-fw fa-tv text-muted"></i> TV</div>
             <% } %>
             <% if (app.utilities[0]?.kitchen) { %>
-            <div class="col-6"><i class="fa fa-fw fa-utensils"></i> Kitchen</div>
+            <div class="col-6"><i class="fa fa-fw fa-utensils"></i> Cocina</div>
             <% } else { %>
-            <div class="col-6"><i class="fa fa-fw fa-utensils text-muted"></i> Kitchen</div>
+            <div class="col-6"><i class="fa fa-fw fa-utensils text-muted"></i> Cocina</div>
             <% } %>
             <% if (app.utilities[0]?.heater) { %>
-            <div class="col-6"><i class="fa fa-fw fa-thermometer"></i> Heating</div>
+            <div class="col-6"><i class="fa fa-fw fa-thermometer"></i> Calefacción</div>
             <% } else { %>
-            <div class="col-6"><i class="fa fa-fw fa-thermometer text-muted"></i> Heating</div>
+            <div class="col-6"><i class="fa fa-fw fa-thermometer text-muted"></i> Calefacción</div>
             <% } %>
             <% if (app.utilities[0]?.accessibility) { %>
-            <div class="col-6"><i class="fa fa-fw fa-wheelchair"></i> Accessibility</div>
+            <div class="col-6"><i class="fa fa-fw fa-wheelchair"></i> Accesibilidad</div>
             <% } else { %>
-            <div class="col-6"><i class="fa fa-fw fa-wheelchair text-muted"></i> Accessibility</div>
+            <div class="col-6"><i class="fa fa-fw fa-wheelchair text-muted"></i> Accesibilidad</div>
             <% } %>
           </ul>
           <a class="btn btn-success w-100" href='http://localhost:3000/apartment/<%= app.privateID %>'>Rent</a>
           <% if (admin) { %>
             <a class="btn btn-danger w-100" href='http://localhost:3000/admin/apartment/<%= app.privateID %>/edit'>Edit</a>
+            <a class="btn btn-warning w-100" href='http://localhost:3000/admin/apartment/<%= app.privateID %>/hide'>Hide Apartment</a>
           <% } %>
         </div>
 
@@ -73,5 +120,10 @@
 
   </div>
   <script src="/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('clearsrch').addEventListener('onsubmit', function() {
+    document.getElementById('search').reset();
+    });</script>
 </body>
 </html>

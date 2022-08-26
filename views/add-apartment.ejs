@@ -15,49 +15,59 @@
 
             <div class="form-group">
                 <label for="title">Título</label>
-                <input type="text" name="title" class="form-control" placeholder="Título del apartamento">
+                <input type="text" name="title" class="form-control" placeholder="Título del apartamento" required>
             </div>
             <p></p>
     
             <div class="form-group">
                 <label for="description">Descripción</label>
-                <input type="text" name="description" class="form-control" placeholder="Descripción del apartamento">
+                <input type="text" name="description" class="form-control" placeholder="Descripción del apartamento" required>
             </div>
             <p></p>
     
             <div class="form-group">
                 <label for="rules">Reglas</label>
-                <input type="text" name="rules" class="form-control" placeholder="Reglas del apartamento">
+                <input type="text" name="rules" class="form-control" placeholder="Reglas del apartamento" required>
+            </div>
+            <p></p>    
+
+            <div class="form-group">
+                <label for="city">Ciudad</label>
+                    <select id="city" name="city" class="form-control" required>
+                        <option selected disabled>-- Selecciona una ciudad --</option>
+                        <option value="BCN">Barcelona</option>
+                        <option value="MDR">Madrid</option>
+                        <option value="STN">Saturno</option>
             </div>
             <p></p>
 
             <div class="form-group">
                 <label for="img1">Link Imagen 1</label>
-                <input type="text" name="img1" id="img1" class="form-control" placeholder="URL Imagen 1">
+                <input type="text" name="img1" id="img1" class="form-control" placeholder="URL Imagen 1" required>
             </div>
             <p></p>
 
             <div class="form-group">
                 <label for="img2">Link Imagen 2</label>
-                <input type="text" name="img2" id="img2" class="form-control" placeholder="URL Imagen 2">
+                <input type="text" name="img2" id="img2" class="form-control" placeholder="URL Imagen 2" required>
             </div>
             <p></p>
 
             <div class="form-group">
                 <label for="img3">Link Imagen 3</label>
-                <input type="text" name="img3" id="img3" class="form-control" placeholder="URL Imagen 3">
+                <input type="text" name="img3" id="img3" class="form-control" placeholder="URL Imagen 3" required>
             </div>
             <p></p>
 
             <div class="form-group">
                 <label for="img4">Link Imagen 4</label>
-                <input type="text" name="img4" id="img4" class="form-control" placeholder="URL Imagen 4">
+                <input type="text" name="img4" id="img4" class="form-control" placeholder="URL Imagen 4" required>
             </div>
             <p></p>
 
             <div class="form-group">   
                 <label for="mainImg">Imagen Principal:</label>
-                    <select id="mainImg" name="mainImg" class="form-control">
+                    <select id="mainImg" name="mainImg" class="form-control" required>
                         <option selected disabled>-- Selecciona una imagen --</option>
                         <option value="img1">Imagen 1</option>
                         <option value="img2">Imagen 2</option>
@@ -69,7 +79,7 @@
 
             <div class="form-group">
                 <label for="rooms">Habitaciones</label>
-                <select id="rooms" name="rooms" class="form-control">
+                <select id="rooms" name="rooms" class="form-control" required>
                     <option selected disabled>-- Selecciona el nº de habitaciones --</option>
                     <option>1</option>
                     <option>2</option>
@@ -86,7 +96,7 @@
     
             <div class="form-group">
                 <label for="roomsBeds">Camas por habitación</label>
-                <select id="roomsBeds" name="roomsBeds" class="form-control">
+                <select id="roomsBeds" name="roomsBeds" class="form-control" required>
                     <option selected disabled>-- Selecciona el nº de camas --</option>
                     <option>1</option>
                     <option>2</option>
@@ -100,7 +110,7 @@
     
             <div class="form-group">
                 <label for="bathrooms">Baños</label>
-                <select id="bathrooms" name="bathrooms" class="form-control">
+                <select id="bathrooms" name="bathrooms" class="form-control" required>
                     <option selected disabled>-- Selecciona el nº de baños --</option>
                     <option>1</option>
                     <option>2</option>
@@ -113,14 +123,14 @@
     
             <div class="form-group">
                 <label for="price">Precio por día</label>
-                <input type="number" id="price" name="price" class="form-control" placeholder="Precio (en €)">
+                <input type="number" id="price" name="price" class="form-control" placeholder="Precio (en €)" required>
                 </input>
             </div>
             <p></p>
     
             <div class="form-group">
                 <label for="size">Metros cuadrados</label>
-                <input type="number" id="size" name="size" class="form-control" placeholder="Tamaño (en m²)">
+                <input type="number" id="size" name="size" class="form-control" placeholder="Tamaño (en m²)" required>
                 </input>
             </div>
             <p></p>

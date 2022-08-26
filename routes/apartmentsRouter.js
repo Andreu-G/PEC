@@ -9,6 +9,14 @@ router.get('/',
         next();
     }, apartmentsController.GetAllApartments);
 
+router.post('/', apartmentsController.GetAllApartments);
+
+router.post('/admin',
+    function(req, res, next){
+    res.locals.admin = true;
+    next();
+}, apartmentsController.GetAllApartments);
+
 router.get('/admin',
 
     function(req, res, next){
@@ -28,6 +36,12 @@ router.get('/apartment/:id', apartmentsController.GetApartment);
 
 router.post('/apartment/:id', apartmentsController.ReserveApartment);
 
-router.get('/admin/apartment/:id/edit', apartmentsController.EditApartment);
+router.get('/admin/apartment/:id/edit', apartmentsController.EditApartmentGET);
+
+router.post('/admin/apartment/:id/edit', apartmentsController.EditApartmentPOST);
+
+router.get('/admin/apartment/:id/hide', apartmentsController.HideApartment);
+
+router.get('/admin/unhideall', apartmentsController.UnhideAll);
 
 module.exports = router;

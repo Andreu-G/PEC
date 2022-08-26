@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="css/all.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/all.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="icon" type="image/svg+xml" href="https://example.com/image.svg">
   <style>
     body,
@@ -36,6 +36,13 @@
       <h3>desde <%= apartment.price %>€</h3>
       <h6>por noche</h6>
       <hr>
+      <% if (typeof rented !== 'undefined') { %>
+        <% if (rented == 1) { %>
+        <div style="font-size: 30px; color: green">Apartamento reservado con éxito</div>
+        <% } else if (rented == 2) { %>
+          <div style="font-size: 30px; color: red">No se ha podido reservar el apartamento</div>
+        <% } else { } %>
+        <% } %>
       <form method="POST">
         <p><label><i class="fa fa-calendar-check-o"></i> Entrada:</label></p>
         <input class="w3-input w3-border" type="date" placeholder="DD MM YYYY" name="CheckIn" required>
@@ -205,7 +212,7 @@
   </div>
 
   <script>
-    // Script to open and close sidebar when on tablets and phones
+
     function w3_open() {
       document.getElementById("mySidebar").style.display = "block";
       document.getElementById("myOverlay").style.display = "block";
@@ -216,7 +223,6 @@
       document.getElementById("myOverlay").style.display = "none";
     }
 
-    // Slideshow Apartment Images
     var slideIndex = 1;
     showDivs(slideIndex);
 

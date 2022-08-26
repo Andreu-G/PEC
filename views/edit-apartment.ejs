@@ -30,6 +30,16 @@
                 <input type="text" name="rules" class="form-control" placeholder="Reglas del apartamento"value="<%= apartment.rules %>">
             </div>
             <p></p>
+            
+            <div class="form-group">
+                <label for="city">Ciudad</label>
+                    <select id="city" name="city" class="form-control">
+                        <option selected disabled>-- Selecciona una ciudad --</option>
+                        <option value="BCN">Barcelona</option>
+                        <option value="MDR">Madrid</option>
+                        <option value="STN">Saturno</option>
+            </div>
+            <p></p>
 
             <div class="form-group">
                 <label for="img1">Link Imagen 1</label>
@@ -59,7 +69,6 @@
                 <label for="mainImg">Imagen Principal:</label>
                     <select id="mainImg" name="mainImg" class="form-control">
                         <option selected disabled>-- Selecciona una imagen --</option>
-                        <% if (maninImg == )
                         <option value="img1">Imagen 1</option>
                         <option value="img2">Imagen 2</option>
                         <option value="img3">Imagen 3</option>
@@ -129,8 +138,14 @@
             <div class="form-check">
                 <label for="util_ac">Aire Acondicionado</label>
                 <input type="hidden" name="util_ac" value="false">
-                <input type="checkbox" id="util_ac" name="util_ac" 
-                value="true" class="form-check-input">
+                <% if (apartment.utilities[0].ac) {%>
+                    <input type="checkbox" id="util_ac" name="util_ac" 
+                    value="true" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" id="util_ac" name="util_ac" 
+                    value="true" class="form-check-input">
+                <% } %>
+
                 </input>
             </div>
             <p></p>
@@ -138,8 +153,13 @@
             <div class="form-check">
                 <label for="util_heater">Calefacción</label>
                 <input type="hidden" name="util_heater" value="false">
-                <input type="checkbox" id="util_heater" name="util_heater"
-                value="true" class="form-check-input">
+                <% if (apartment.utilities[0].heater) {%>
+                    <input type="checkbox" id="util_heater" name="util_heater" 
+                    value="true" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" id="util_heater" name="util_heater" 
+                    value="true" class="form-check-input">
+                <% } %>
                 </input>
             </div>
             <p></p>
@@ -147,8 +167,13 @@
             <div class="form-check">
                 <label for="util_accessibility">Accesible para minusválidos</label>
                 <input type="hidden" name="util_accessibility" value="false">
-                <input type="checkbox" id="util_accessibility" name="util_accessibility"
-                value="true" class="form-check-input">
+                <% if (apartment.utilities[0].accessibility) {%>
+                    <input type="checkbox" id="util_accessibility" name="util_accessibility" 
+                    value="true" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" id="util_accessibility" name="util_accessibility" 
+                    value="true" class="form-check-input">
+                <% } %>
                 </input>
             </div>
             <p></p>
@@ -156,8 +181,13 @@
             <div class="form-check">
                 <label for="util_tv">Televisión</label>
                 <input type="hidden" name="util_tv" value="false">
-                <input type="checkbox" id="util_tv" name="util_tv"
-                value="true" class="form-check-input">
+                <% if (apartment.utilities[0].tv) {%>
+                    <input type="checkbox" id="util_tv" name="util_tv" 
+                    value="true" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" id="util_tv" name="util_tv" 
+                    value="true" class="form-check-input">
+                <% } %>
                 </input>
             </div>
             <p></p>
@@ -165,8 +195,13 @@
             <div class="form-check">
                 <label for="util_kitchen">Cocina</label>
                 <input type="hidden" name="util_kitchen" value="false">
-                <input type="checkbox" id="util_kitchen" name="util_kitchen"
-                value="true" class="form-check-input">
+                <% if (apartment.utilities[0].kitchen) {%>
+                    <input type="checkbox" id="util_kitchen" name="util_kitchen" 
+                    value="true" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" id="util_kitchen" name="util_kitchen" 
+                    value="true" class="form-check-input">
+                <% } %>
                 </input>
             </div>
             <p></p>
@@ -174,8 +209,13 @@
             <div class="form-check">
                 <label for="util_internet">Internet</label>
                 <input type="hidden" name="util_internet" value="false">
-                <input type="checkbox" id="util_internet" name="util_internet"
-                value="true" class="form-check-input">
+                <% if (apartment.utilities[0].internet) {%>
+                    <input type="checkbox" id="util_internet" name="util_internet" 
+                    value="true" class="form-check-input" checked>
+                <% } else { %>
+                    <input type="checkbox" id="util_internet" name="util_internet" 
+                    value="true" class="form-check-input">
+                <% } %>
                 </input>
             </div>
             <p></p>
@@ -190,6 +230,17 @@
         document.getElementById('rooms').value = `<%= apartment.rooms %>`;
         document.getElementById('roomsBeds').value = `<%= apartment.roomsBeds %>`;
         document.getElementById('bathrooms').value = `<%= apartment.bathrooms %>`;
+        document.getElementById('city').value = `<%= apartment.city %>`;
+        if (`<%= apartment.mainImg %>` == document.getElementById('img1').value)
+        {
+            document.getElementById('mainImg').value = 'img1';
+        } else if (`<%= apartment.mainImg %>` == document.getElementById('img2').value) {
+            document.getElementById('mainImg').value = 'img2';
+        } else if (`<%= apartment.mainImg %>` == document.getElementById('img3').value) {
+            document.getElementById('mainImg').value = 'img3';
+        } else {
+            document.getElementById('mainImg').value = 'img4';
+        }
     </script>
 </body>
 </html>
